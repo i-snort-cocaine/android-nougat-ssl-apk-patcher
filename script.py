@@ -10,8 +10,6 @@ if apk[-4:] != '.apk':
     apk += '.apk'
 print('to patch: '+apk)
 
-start_time = time.time()
-
 print('decoding apk(may take a moment)')
 os.system('java -jar apktool_2.2.3.jar -q -s d ' + apk)
 print('apk successfully decoded')
@@ -41,6 +39,4 @@ os.remove(apk_name+'_ks.keystore')
 os.remove(apk_name+'_unsigned.apk')
 print('succesfully cleaned up')
 
-print('finished in ' + str(time.time()-start_time))
-
-
+print('finished')
