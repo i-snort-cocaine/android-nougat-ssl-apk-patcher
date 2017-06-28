@@ -21,6 +21,9 @@ tree.getroot().find('application').attrib['{http://schemas.android.com/apk/res/a
 tree.write(apk_name+'/AndroidManifest.xml')
 print('AndroidManifest.xml successfully patched')
 
+if not os.path.isdir(apk_name+'/res/xml'):     
+    os.mkdir(apk_name+'/res/xml')
+
 shutil.copy2('network_security_config.xml', apk_name+'/res/xml/')
 print('network_security_config.xml successfully copied into {}/res/xml/'.format(apk_name))
 
