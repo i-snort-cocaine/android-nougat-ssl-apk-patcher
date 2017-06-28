@@ -31,7 +31,7 @@ print('apk successfully rebuilt to {}_unsigned.apk'.format(apk_name))
 os.system('keytool -noprompt -genkey -v -keystore {}.keystore -alias {} -keyalg RSA -keysize 2048 -validity 10000  -dname CN=CA -keypass password --storepass password'.format(apk_name+'_ks', apk_name+'_alias'))
 print('keystore successfully generated')
 
-os.system('java -jar apksignerx.jar sign --ks-pass pass:password --out {}.apk --ks-key-alias {} --ks {}.keystore {}.apk '.format(apk_name+'_signed', apk_name+'_alias', apk_name+'_ks', apk_name+'_unsigned', ))
+os.system('java -jar apksigner.jar sign --ks-pass pass:password --out {}.apk --ks-key-alias {} --ks {}.keystore {}.apk '.format(apk_name+'_signed', apk_name+'_alias', apk_name+'_ks', apk_name+'_unsigned', ))
 print('apk successfully signed @ {}_signed.apk'.format(apk_name))
 
 shutil.rmtree(apk_name)
