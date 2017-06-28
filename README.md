@@ -1,0 +1,1 @@
+# android-nougat-ssl-apk-patcher
